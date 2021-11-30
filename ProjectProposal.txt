@@ -1,0 +1,10 @@
+Project Proposal for Ishaan Rawat
+Student Number: C18459302 
+Games Engine 1 Assignment
+
+This is my project proposal for games engine 1. For my project, I plan to create a virtual simulation where the user can explore the sea. 
+The user will either be a fish object, submarine or a scuba diver. I will have various fish and aquatic swimming through the water to give
+the user a cool experience and to explore the depth of the unknown.
+
+The link to my GitHub repo is : https://github.com/ishaanR87/Games-Engine-1-Assignment.git
+
