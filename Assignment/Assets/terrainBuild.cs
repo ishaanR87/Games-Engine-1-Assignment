@@ -96,7 +96,7 @@ public class terrainBuild : MonoBehaviour
                     }
                     else
                     {
-                        (tiles(tileName) as Tile).creationTime = updateTime;
+                        (tiles[tileName] as Tile).creationTime = updateTime;
                     }
                 }
             }
@@ -109,12 +109,12 @@ public class terrainBuild : MonoBehaviour
                 if(tls.creationTime != updateTime)
                 {
                 // destroy gameobject
-                Destroy(tls.theTile);
+                Destroy(tls.aTile);
                 }
 
                 else
                 {
-                newTerrain.Add(tls.theTile.name, tls);
+                newTerrain.Add(tls.aTile.name, tls);
                 }                
         }
 
@@ -122,7 +122,7 @@ public class terrainBuild : MonoBehaviour
             tiles = newTerrain;
             startPos = player.transform.position;
     }
- }
+}
 }
 
 

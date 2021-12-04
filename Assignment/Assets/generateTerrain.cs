@@ -15,7 +15,7 @@ public class generateTerrain : MonoBehaviour
     void Start()
     {
         // mesh is taken from the object attached to this 
-        Mesh mesh = this.GetComponentr<MeshFilter>().mesh;
+        Mesh mesh = this.GetComponent<MeshFilter>().mesh;
         Vector3 [] vertices = mesh.vertices;
 
         // looping over mesh
