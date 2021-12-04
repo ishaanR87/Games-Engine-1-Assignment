@@ -40,6 +40,8 @@ public class generateTerrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        int moveZ = (int)(player.transform.position.x - startPos.x);
+        int moveX = (int)(player.transform.position.x - startPos.x);
+    }
     }
 }
