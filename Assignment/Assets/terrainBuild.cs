@@ -68,6 +68,62 @@ public class terrainBuild : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // how far player has moved since last terrain update
+        int moveX = (int)(player.transform.position.x - startPos.x);
+        int moveZ = (int)(player.transform.position.z - startPos.z);
+
+        if(Mathf.Abs(moveX) >= planeSize || Mathf.Abs(moveZ) >= planeSize)
+        {
+            float updateTime = Time.realtimeSinceStartup;
+
+            // forces integer position and rounds to nearest tile size
+            int playerX = (int)(Mathf.Floor(player.transform.position.x/planeSize)*planeSize);
+            int playerZ = (int)(Mathf.Floor(player.transform.position.z/planeSize)*planeSize);
+
+            for(int x = -halfTileX; x < halfTileX; x++)
+            {
+                 for(int z = -halfTileZ; z < halfTileZ; z++)
+                 {
+                    Vector3 pos = new Vector3((x * planeSize + playerX),0,(z * planeSize + playerZ));
+                    string tileName = "Tile_" + ((int)(pos.x)).ToString() + "_" + ((int)(pos.z)).ToString();
+
+                    if(!tiles.ContainsKey(tileName))
+                    {
+                        GameObject t = (GameObject) Instantiate(plane, pos, Quaternion.identity);
+                        t.name = tileName;
+                        Tile tile = new Tile(t, updateTime);
+                        tiles.Add(tileName, tile);
+                    }
+                    else
+                    {
+                        (tiles(tileName) as Tile).creationTime = updateTime;
+                    }
+                }
+            }
+
+            // destroy all tiles that are not just created with time updated
+            // put new tiles into a newhashtable
+            Hashtable newTerrain = new Hashtable();
+            foreach (Tile tls in tiles.Values)
+            {
+                if(tls.creationTime != updateTime)
+                {
+                // destroy gameobject
+                Destroy(tls.theTile);
+                }
+
+                else
+                {
+                newTerrain.Add(tls.theTile.name, tls);
+                }                
+        }
+
+            // copy new hastable contents to a working hashtable
+            tiles = newTerrain;
+            startPos = player.transform.position;
     }
+ }
 }
+
+
+

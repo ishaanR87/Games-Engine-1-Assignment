@@ -15,7 +15,7 @@ public class generateTerrain : MonoBehaviour
     void Start()
     {
         // mesh is taken from the object attached to this 
-        Mesh mesh = this.GetComponent<MeshFilter>().mesh;
+        Mesh mesh = this.GetComponentr<MeshFilter>().mesh;
         Vector3 [] vertices = mesh.vertices;
 
         // looping over mesh
@@ -40,8 +40,6 @@ public class generateTerrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int moveZ = (int)(player.transform.position.x - startPos.x);
-        int moveX = (int)(player.transform.position.x - startPos.x);
-    }
+        
     }
 }
