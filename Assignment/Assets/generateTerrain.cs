@@ -10,6 +10,7 @@ public class generateTerrain : MonoBehaviour
     // to initalize height and detail of the landscape
     int height = 5;
     float detail = 5.0f;
+    public GameObject tree;
 
     // Start is called before the first frame update
     void Start()
