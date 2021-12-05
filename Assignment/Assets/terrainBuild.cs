@@ -26,8 +26,8 @@ public class terrainBuild : MonoBehaviour
     // size needed to add more tiles
     int planeSize = 10;
     // how many tiles around player
-    int halfTileX = 10;
-    int halfTileZ = 10;
+    int halfTileX = 5;
+    int halfTileZ = 5;
 
     // where player is and was 
     Vector3 startPos;
@@ -68,12 +68,14 @@ public class terrainBuild : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // how far player has moved since last terrain update
+        // how far player has moved in x and z 
         int moveX = (int)(player.transform.position.x - startPos.x);
         int moveZ = (int)(player.transform.position.z - startPos.z);
 
+        // if player moves in x or z position by planeSize
         if(Mathf.Abs(moveX) >= planeSize || Mathf.Abs(moveZ) >= planeSize)
         {
+            // generate time to cerate new tiles (old times are removed based on time)
             float updateTime = Time.realtimeSinceStartup;
 
             // forces integer position and rounds to nearest tile size
@@ -84,11 +86,15 @@ public class terrainBuild : MonoBehaviour
             {
                  for(int z = -halfTileZ; z < halfTileZ; z++)
                  {
+                    // positioning around player x and z
                     Vector3 pos = new Vector3((x * planeSize + playerX),0,(z * planeSize + playerZ));
+                    // creates new tiles if they dont already exist
                     string tileName = "Tile_" + ((int)(pos.x)).ToString() + "_" + ((int)(pos.z)).ToString();
 
+                    // if tiles arent in hashtable
                     if(!tiles.ContainsKey(tileName))
                     {
+                        // create the tile
                         GameObject t = (GameObject) Instantiate(plane, pos, Quaternion.identity);
                         t.name = tileName;
                         Tile tile = new Tile(t, updateTime);
@@ -96,6 +102,7 @@ public class terrainBuild : MonoBehaviour
                     }
                     else
                     {
+                        // update time stamp
                         (tiles[tileName] as Tile).creationTime = updateTime;
                     }
                 }
