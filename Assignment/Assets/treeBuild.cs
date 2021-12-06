@@ -6,7 +6,7 @@ public class treeBuild : MonoBehaviour
 {
 
     // number of trees being generated
-        static int numTrees = 100;
+        static int numTrees = 1000;
         // from this object
         public GameObject treePrefab;
         // array of trees
