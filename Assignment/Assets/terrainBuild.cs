@@ -26,8 +26,8 @@ public class terrainBuild : MonoBehaviour
     // size needed to add more tiles
     int planeSize = 10;
     // how many tiles around player
-    int halfTileX = 5;
-    int halfTileZ = 5;
+    int halfTileX = 2;
+    int halfTileZ = 2;
 
     // where player is and was 
     Vector3 startPos;
