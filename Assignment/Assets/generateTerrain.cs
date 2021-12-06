@@ -32,7 +32,7 @@ public class generateTerrain : MonoBehaviour
 
              // Debug.Log(vertices[v].y);
 
-              if(vertices[v].y > 2.7 && Random.Range(0,100) < 10)
+              if(vertices[v].y > 2.7 && Mathf.PerlinNoise((vertices[v].x+8)/10,(vertices[v].z+8)/10)* 10 > 4.7)
               {
                   GameObject newTree = treeBuild.getTree();
                   if(newTree != null)
