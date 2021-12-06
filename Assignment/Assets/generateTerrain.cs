@@ -29,12 +29,14 @@ public class generateTerrain : MonoBehaviour
                                             (vertices[v].z + this.transform.position.z)/detail)*height;
 
               Debug.Log(vertices[v].y);
-              if(vertices[v].y > 2.4)
+              if(vertices[v].y > 2.7)
               {
                   Vector3 treePos = new Vector3(vertices[v].x + this.transform.position.x,
                                                                             vertices[v].y,
                                                                             vertices[v].z + this.transform.position.z);
-                    Instantiate(tree, treePos, Quaternion.identity);                                                                     
+                    // trees now also disappear from behind deping on where player is moving
+                    GameObject t = (GameObject) Instantiate(tree, treePos, Quaternion.identity);        
+                    t.transform.parent = this.transform;                                                             
               }      
                                         
         }
