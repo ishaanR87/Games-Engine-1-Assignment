@@ -31,7 +31,7 @@ public class generateTerrain : MonoBehaviour
                                             (vertices[v].z + this.transform.position.z)/detail)*height;
 
              // Debug.Log(vertices[v].y);
-
+                // trees generated know based on PerlinNoise 8+ x and y axis 
               if(vertices[v].y > 2.7 && Mathf.PerlinNoise((vertices[v].x+8)/10,(vertices[v].z+8)/10)* 10 > 4.7)
               {
                   GameObject newTree = treeBuild.getTree();
@@ -55,6 +55,18 @@ public class generateTerrain : MonoBehaviour
         // to explore
         this.gameObject.AddComponent<MeshCollider>();
 
+    }
+    // sets trees destroyed to inactive for memory
+    void whenDestroyed()
+    {
+        for(int i = 0; i < myTrees.Count; i++)
+        {
+            if(myTrees[i] != null)
+            {
+                myTrees[i].SetActive(false);
+            }
+            myTrees.Clear();
+        }
     }
 
     // Update is called once per frame
