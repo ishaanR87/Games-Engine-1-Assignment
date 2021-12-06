@@ -32,7 +32,7 @@ public class generateTerrain : MonoBehaviour
 
              // Debug.Log(vertices[v].y);
 
-              if(vertices[v].y > 2.7)
+              if(vertices[v].y > 2.7 && Random.Range(0,100) < 10)
               {
                   GameObject newTree = treeBuild.getTree();
                   if(newTree != null)
