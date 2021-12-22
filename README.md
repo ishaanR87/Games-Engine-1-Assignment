@@ -19,8 +19,8 @@ This project works by creating a tiles and trees based on the user's x and z pos
 | Class/asset | Source |
 |-----------|-----------|
 | treeBuild.cs | Modified from https://www.codegrepper.com/code-examples/csharp/awdaWD  |
-| terrainBuild.cs | Self Written (Help from Stack Overflow)  |
-| generateTerrain.cs | Self Written (Help from Stack Overflow) |
+| terrainBuild.cs | Modified from https://www.codegrepper.com/code-examples/csharp/awdaWD  |
+| generateTerrain.cs | Modified from https://www.codegrepper.com/code-examples/csharp/awdaWD |
 
 
 # What I am most proud of in the assignment
